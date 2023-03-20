@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+include (dirname(__FILE__) . "/../../util/ftpTuusin.php");
 
 use Illuminate\Http\Request;
 use App\Models\user_access;
 use App\Http\Controllers\Controller;
+
 
 class ApiController extends Controller
 {
@@ -15,6 +17,8 @@ class ApiController extends Controller
      * @return void
      */
     public function create(Request $request) {
+        getFtpSecuMaster();
+
         $member = user_access::create([
             'name' => $request->name,
         ]);
